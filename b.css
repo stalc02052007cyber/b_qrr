@@ -1,0 +1,610 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 30px 15px;
+
+  font-family: "DM Sans", sans-serif;
+  color: #fff;
+
+  background: #080808;
+
+  overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* =========================
+   BACKGROUND
+========================= */
+
+body::before {
+  content: "";
+
+  position: fixed;
+  width: 500px;
+  height: 500px;
+
+  top: -200px;
+  left: -150px;
+
+  border-radius: 50%;
+
+  background: #b88938;
+
+  opacity: 0.12;
+
+  filter: blur(130px);
+
+  pointer-events: none;
+}
+
+body::after {
+  content: "";
+
+  position: fixed;
+  width: 450px;
+  height: 450px;
+
+  right: -200px;
+  bottom: -200px;
+
+  border-radius: 50%;
+
+  background: #6e4b18;
+
+  opacity: 0.15;
+
+  filter: blur(120px);
+
+  pointer-events: none;
+}
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container {
+  width: min(100%, 480px);
+}
+
+/* =========================
+   CARD
+========================= */
+
+.card {
+  position: relative;
+
+  width: 100%;
+  padding: 30px;
+
+  border-radius: 30px;
+
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.085),
+    rgba(255, 255, 255, 0.025)
+  );
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  box-shadow:
+    0 40px 100px rgba(0, 0, 0, 0.65),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+
+  overflow: hidden;
+
+  animation: showCard 0.8s ease;
+}
+
+/* золотая подсветка сверху */
+
+.card::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 20%;
+
+  width: 60%;
+  height: 1px;
+
+  background: linear-gradient(90deg, transparent, #d8ad61, transparent);
+
+  box-shadow: 0 0 20px #d8ad61;
+}
+
+/* =========================
+   TOP
+========================= */
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 35px;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 7px 11px;
+
+  color: #c9a45b;
+
+  font-size: 9px;
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
+
+  border: 1px solid rgba(201, 164, 91, 0.25);
+  border-radius: 30px;
+
+  background: rgba(201, 164, 91, 0.06);
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: #62d47b;
+
+  box-shadow: 0 0 10px #62d47b;
+}
+
+.number {
+  color: #444;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  letter-spacing: 2px;
+}
+
+/* =========================
+   PROFILE
+========================= */
+
+.profile {
+  text-align: center;
+}
+
+/* Аватар */
+
+.avatar {
+  width: 120px;
+  height: 120px;
+
+  padding: 4px;
+
+  margin: 0 auto 22px;
+
+  border-radius: 50%;
+
+  background: linear-gradient(135deg, #f0cf82, #916822);
+
+  box-shadow:
+    0 15px 40px rgba(0, 0, 0, 0.5),
+    0 0 30px rgba(216, 173, 97, 0.12);
+}
+
+.avatar-placeholder {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: radial-gradient(circle at 30% 20%, #36312a, #111);
+
+  color: #d8ad61;
+
+  font-family: "Playfair Display", serif;
+
+  font-size: 45px;
+  font-weight: 700;
+}
+
+/* =========================
+   TEXT
+========================= */
+
+.label {
+  margin-bottom: 7px;
+
+  color: #666;
+
+  font-size: 9px;
+  font-weight: 700;
+
+  letter-spacing: 3px;
+}
+
+h1 {
+  font-family: "Playfair Display", serif;
+
+  font-size: 38px;
+  line-height: 1.05;
+
+  letter-spacing: -1px;
+}
+
+h1 span {
+  color: #d8ad61;
+}
+
+.profession {
+  margin-top: 14px;
+
+  color: #d8ad61;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.profession i {
+  margin-right: 6px;
+}
+
+.description {
+  max-width: 350px;
+
+  margin: 18px auto 0;
+
+  color: #888;
+
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+/* =========================
+   LINE
+========================= */
+
+.line {
+  width: 100%;
+  height: 1px;
+
+  margin: 28px 0;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+}
+
+/* =========================
+   CONTACTS
+========================= */
+
+.contacts {
+  display: flex;
+  flex-direction: column;
+
+  gap: 12px;
+
+  margin-bottom: 22px;
+}
+
+.contact {
+  display: flex;
+  align-items: center;
+
+  gap: 13px;
+
+  color: #fff;
+
+  text-decoration: none;
+
+  transition: 0.3s;
+}
+
+.contact:hover {
+  transform: translateX(5px);
+}
+
+.icon {
+  width: 43px;
+  height: 43px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  color: #d8ad61;
+
+  border: 1px solid rgba(216, 173, 97, 0.14);
+
+  border-radius: 13px;
+
+  background: rgba(216, 173, 97, 0.06);
+}
+
+.contact small {
+  display: block;
+
+  margin-bottom: 3px;
+
+  color: #555;
+
+  font-size: 8px;
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
+}
+
+.contact span {
+  color: #ddd;
+
+  font-size: 12px;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.actions {
+  display: flex;
+
+  gap: 10px;
+
+  margin-bottom: 22px;
+}
+
+.main-button {
+  flex: 1;
+
+  height: 52px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 9px;
+
+  color: #111;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  text-decoration: none;
+
+  border-radius: 14px;
+
+  background: linear-gradient(135deg, #f1d38e, #a87829);
+
+  box-shadow: 0 10px 25px rgba(193, 147, 62, 0.16);
+
+  transition: 0.3s;
+}
+
+.main-button:hover {
+  transform: translateY(-3px);
+
+  box-shadow: 0 15px 35px rgba(193, 147, 62, 0.3);
+}
+
+.call-button {
+  width: 52px;
+  height: 52px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #d8ad61;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  border-radius: 14px;
+
+  background: rgba(255, 255, 255, 0.04);
+
+  text-decoration: none;
+
+  transition: 0.3s;
+}
+
+.call-button:hover {
+  color: #111;
+
+  background: #d8ad61;
+
+  transform: translateY(-3px);
+}
+
+/* =========================
+   SOCIALS
+========================= */
+
+.socials {
+  display: flex;
+  justify-content: center;
+
+  gap: 10px;
+}
+
+.socials a {
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #777;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  border-radius: 12px;
+
+  background: rgba(255, 255, 255, 0.03);
+
+  text-decoration: none;
+
+  transition: 0.3s;
+}
+
+.socials a:hover {
+  color: #d8ad61;
+
+  border-color: rgba(216, 173, 97, 0.35);
+
+  background: rgba(216, 173, 97, 0.08);
+
+  transform: translateY(-4px);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-top: 28px;
+
+  padding-top: 18px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+
+  color: #444;
+
+  font-size: 8px;
+
+  letter-spacing: 1.5px;
+}
+
+@media (max-width: 420px) {
+  body {
+    padding: 20px 12px;
+  }
+
+  .card {
+    padding: 22px 18px 20px;
+    border-radius: 22px;
+  }
+
+  .top {
+    margin-bottom: 24px;
+  }
+
+  .status {
+    font-size: 8px;
+    letter-spacing: 1.2px;
+  }
+
+  .avatar {
+    width: 100px;
+    height: 100px;
+  }
+
+  h1 {
+    font-size: 32px;
+  }
+
+  .description {
+    max-width: 100%;
+    font-size: 12px;
+  }
+
+  .contact {
+    gap: 10px;
+  }
+
+  .contact span {
+    font-size: 11px;
+  }
+
+  .main-button {
+    font-size: 11px;
+  }
+
+  .footer {
+    gap: 10px;
+    font-size: 7px;
+  }
+}
+
+/* =========================
+   ANIMATION
+========================= */
+
+@keyframes showCard {
+  from {
+    opacity: 0;
+    transform: translateY(25px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 500px) {
+  body {
+    padding: 15px;
+  }
+
+  .card {
+    padding: 24px 20px;
+
+    border-radius: 25px;
+  }
+
+  h1 {
+    font-size: 33px;
+  }
+
+  .avatar {
+    width: 105px;
+    height: 105px;
+  }
+
+  .avatar-placeholder {
+    font-size: 38px;
+  }
+
+  .contact span {
+    font-size: 11px;
+  }
+}
